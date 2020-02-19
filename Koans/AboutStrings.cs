@@ -64,7 +64,7 @@ broken line";
 
       // Make sure to use a literal string.
       // Escaped characters in verbatim strings are covered later.
-      var literalString = @"I " '\n' "am a" '\n' "broken line";
+      var literalString = "I" + System.Environment.NewLine + "am a" + System.Environment.NewLine + "broken line";
       Assert.Equal(18, verbatimString.Length);
       Assert.Equal(literalString, verbatimString);
     }
@@ -77,15 +77,17 @@ broken line";
       //the hardcoded escape sequence. A much better way
       //(We'll handle concatenation and better ways of that in a bit)
       var literalString = "I" + System.Environment.NewLine + "am a" + System.Environment.NewLine + "broken line";
-      var vebatimString = FILL_ME_IN;
-      Assert.Equal(literalString, vebatimString);
+      var verbatimString = @"I
+am a
+broken line";
+      Assert.Equal(literalString, verbatimString);
     }
 
     [Step(8)]
     public void PlusWillConcatenateTwoStrings()
     {
       var str = "Hello, " + "World";
-      Assert.Equal(FILL_ME_IN, str);
+      Assert.Equal("Hello, World", str);
     }
 
     [Step(9)]
@@ -94,8 +96,8 @@ broken line";
       var strA = "Hello, ";
       var strB = "World";
       var fullString = strA + strB;
-      Assert.Equal(FILL_ME_IN, strA);
-      Assert.Equal(FILL_ME_IN, strB);
+      Assert.Equal("Hello, ", strA);
+      Assert.Equal("World", strB);
     }
 
     [Step(10)]
@@ -104,8 +106,8 @@ broken line";
       var strA = "Hello, ";
       var strB = "World";
       strA += strB;
-      Assert.Equal(FILL_ME_IN, strA);
-      Assert.Equal(FILL_ME_IN, strB);
+      Assert.Equal("Hello, World", strA);
+      Assert.Equal("World", strB);
     }
 
     [Step(11)]
@@ -119,7 +121,7 @@ broken line";
       var originalString = strA;
       var strB = "World";
       strA += strB;
-      Assert.Equal(FILL_ME_IN, originalString);
+      Assert.Equal("Hello, ", originalString);
 
       //What just happened? Well, the string concatenation actually
       //takes strA and strB and creates a *new* string in memory
