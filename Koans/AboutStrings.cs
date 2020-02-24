@@ -31,6 +31,7 @@ namespace DotNetCoreKoans.Koans
     public void CreateAStringWhichContainsDoubleQuotes()
     {
       var str = "Hello, \"World\"";
+
       Assert.Equal(14, str.Length);
     }
 
